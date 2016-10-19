@@ -2,7 +2,7 @@
 * @Author: xiongsheng
 * @Date:   2016-09-26 20:11:36
 * @Last Modified by:   xiongsheng
-* @Last Modified time: 2016-10-18 18:12:30
+* @Last Modified time: 2016-10-19 17:56:03
 */
 
 body {
@@ -31,7 +31,7 @@ body {
     background-size: 83px 45px;
 }
 
-.header-right {
+.right {
     float: right;
 }
 
