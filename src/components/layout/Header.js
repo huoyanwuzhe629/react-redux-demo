@@ -2,7 +2,7 @@
 * @Author: xiongsheng
 * @Date:   2016-09-27 16:23:31
 * @Last Modified by:   xiongsheng
-* @Last Modified time: 2016-10-19 17:59:51
+* @Last Modified time: 2016-10-19 18:06:54
 */
 
 'use strict';
@@ -37,7 +37,7 @@ class Header extends Component {
                             <span onClick = { ()=>loginAction(login.status) }>{login.status}</span>
                         </div>
                     </div>
-                    <div className="right">
+                    <div className="right" style={{marginRight: 0}}>
                         <em>arch. with</em>PC-react
                     </div>
                 </div>
