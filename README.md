@@ -6,7 +6,7 @@ Application created by [React](https://github.com/facebook/react "React") & [Red
 
   1. Clone this repo:
   ```
-  $ git clone https://github.com/huoyanwuzhe629/react-start-kit.git
+  $ git clone https://github.com/huoyanwuzhe629/react-redux-demo.git
   ```
 
   2. Install dependenices:
@@ -16,7 +16,7 @@ Application created by [React](https://github.com/facebook/react "React") & [Red
 
   3. Start the project:
   ```
-  $ npm start               // the port number is randomly generated 
+  $ npm start               // the port number is randomly generated
   ```
 
   4. Access browser: the browser will be opened automatically
