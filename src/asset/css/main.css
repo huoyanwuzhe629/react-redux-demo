@@ -2,7 +2,7 @@
 * @Author: xiongsheng
 * @Date:   2016-09-26 20:11:36
 * @Last Modified by:   xiongsheng
-* @Last Modified time: 2016-10-19 17:56:03
+* @Last Modified time: 2016-10-19 18:13:27
 */
 
 body {
@@ -10,6 +10,10 @@ body {
     font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #333333;
+}
+
+#app{
+    height: 100%;
 }
 
 /* header */
@@ -99,7 +103,7 @@ body {
 .result-container {
     margin-left: 50px;
     margin-right: 50px;
-    min-height: 322px;
+    min-height: 422px;
 }
 
 .ant-table-pagination {
@@ -168,12 +172,4 @@ h3 {
 }
 
 
-/*.nav {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    background:#1c5db9;
-    height:60px
-}
-*/
+
