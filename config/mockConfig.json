@@ -1,0 +1,17 @@
+{
+    "dataSource": ["json", "template", "cookie"],
+    "json": {
+        "path": "/mock/data/",
+        "wrap": true
+    },
+    "cookie": {
+        "host": "",
+        "rejectUnauthorized": false,
+        "secureProtocol": "SSLv3_method",
+        "cookie": "",
+        "proxy": ""
+    },
+    "template": {
+        "path": "/mock/template/"
+    }
+}

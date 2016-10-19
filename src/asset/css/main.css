@@ -1,0 +1,179 @@
+/*
+* @Author: xiongsheng
+* @Date:   2016-09-26 20:11:36
+* @Last Modified by:   xiongsheng
+* @Last Modified time: 2016-10-18 18:12:30
+*/
+
+body {
+    margin: 0;
+    font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+}
+
+/* header */
+
+.header-wrap {
+    background: #039be5;
+}
+
+.header,
+.footer {
+    margin: 0 ;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei";
+}
+
+.logo {
+    display: inline-block;
+    background: url(../image/logo_fe.png) no-repeat;
+    background-size: 83px 45px;
+}
+
+.header-right {
+    float: right;
+}
+
+.header {
+    padding: 10px 36px 10px 48px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 45px;
+}
+
+.header .logo {
+    padding-left: 92px;
+}
+
+.header .right {
+    margin-right: 40px;
+}
+
+.header em {
+    font-style: normal;
+    margin-right: 12px;
+}
+
+.header .login-name {
+    line-height: 25px;
+}
+
+.header .login-action {
+    cursor:pointer;
+    line-height: 25px;
+    float:right;
+}
+
+
+.ant-select-dropdown-menu li:first-child {
+    display: none;
+}
+
+.query-line {
+    margin: 10px 0 10px 0;
+}
+
+.inline-div {
+    display: inline-block;
+}
+
+.query-container {
+    margin-left: 50px
+}
+.query-label {
+    font-size: 14px;
+    margin: 0px;
+    font-weight: 200;
+}
+
+.query-group {
+    margin-left: 40px;
+}
+
+.query-group span {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.result-container {
+    margin-left: 50px;
+    margin-right: 50px;
+    min-height: 322px;
+}
+
+.ant-table-pagination {
+    float: left;
+}
+.column-right {
+    text-align: right;
+}
+
+.ant-table-thead tr th {
+    text-align: center;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+    height: 21px;
+}
+
+
+
+
+/* footer */
+.footer-wrap {
+  background: #3e3e3e;
+  margin-top: 100px;
+}
+
+.footer {
+    padding: 30px 106px 60px 120px;
+    color: #999;
+    font-size: 9px;
+}
+
+.footer .logo {
+    padding-top: 48px;
+    background-size: 53px 29px;
+}
+
+.footer ul {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 16px 0 68px;
+    color: #5c5c5c;
+}
+
+.footer ul:first-child {
+    border-right: 1px solid #4c4c4c;
+}
+
+.footer li span {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.footer li a {
+    color: #5c5c5c;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+}
+
+
+/*.nav {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background:#1c5db9;
+    height:60px
+}
+*/

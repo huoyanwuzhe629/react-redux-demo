@@ -1,0 +1,18 @@
+{
+    "enabled": true,
+    "value": "success",
+    "success": {
+        "login": {
+            "name": "xiongsheng",
+            "status": "退出"
+        }
+    },
+    "error": {
+        "flag": "1",
+        "msg": ["input error"],
+        "data": []
+    }
+}
+
+
+
