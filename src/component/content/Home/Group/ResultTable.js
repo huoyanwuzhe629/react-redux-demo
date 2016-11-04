@@ -1,9 +1,9 @@
 /*
-* @Author: xiongsheng
-* @Date:   2016-10-14 14:01:12
-* @Last Modified by:   xiongsheng
-* @Last Modified time: 2016-10-19 15:51:30
-*/
+ * @Author: xiongsheng
+ * @Date:   2016-10-14 14:01:12
+ * @Last Modified by:   xiongsheng
+ * @Last Modified time: 2016-10-26 19:43:34
+ */
 
 'use strict';
 
@@ -12,20 +12,17 @@ import React, { Component, PropTypes } from 'react';
 import { Router, Route, Link } from 'react-router';
 import { Table } from 'antd';
 import { connect } from 'react-redux';
-import * as TotalActions from '../../../redux/actions';
+import * as TotalActions from '../../../../redux/action';
 
 @connect(
-  state => ({
-     result: state.default.result
-  })
-  ,{...TotalActions}
+    state => ({
+        result: state.default.result
+    }), {...TotalActions }
 )
 class ResultTable extends Component {
-    componentWillMount() {
-        this.props.search();
-    }
+
     render() {
-        const {result} = this.props,
+        const { result } = this.props,
             locale = {
                 emptyText: '没有找到符合条件推广组',
             },
@@ -83,7 +80,7 @@ class ResultTable extends Component {
                 dataIndex: 'clickRate',
                 className: 'column-right',
                 render(clickRate) {
-                    return parseFloat(clickRate*100).toFixed(2) + '%';
+                    return parseFloat(clickRate * 100).toFixed(2) + '%';
                 },
                 sorter: (a, b) => {
                     return a.clickRate - b.clickRate;
@@ -100,20 +97,21 @@ class ResultTable extends Component {
                 dataIndex: 'status',
                 render(status) {
                     if (status == '有效') {
-                        return <font color="green">{status}</font>;
+                        return <font color = "green" > { status } < /font>;
                     } else {
-                        return <font color="brown">{status}</font>;
+                        return <font color = "brown" > { status } < /font>;
                     }
                 }
             }];
 
         return (
-            <div className="result-container">
-                <Table columns={columns} dataSource={result.tableData} bordered  locale={locale}/>
+            < div className = "result-container" >
+                < Table columns = { columns }
+                dataSource = { result.tableData }
+                bordered locale = { locale }/>
             </div>
         )
     }
 }
-ResultTable.propTypes = {
-}
+ResultTable.propTypes = {}
 export default ResultTable

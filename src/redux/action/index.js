@@ -1,18 +1,4 @@
-
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-export const RETURN_ZERO = 'RETURN_ZERO';
-export const SHOW_MSG = 'SHOW_MSG';
 export const LOGIN = 'LOGIN';
-export const CHANGE_DISTRICT = 'CHANGE_DISTRICT';
-export const CHANGE_CITY = 'CHANGE_CITY';
-export const CHANGE_GROUPNAME = 'CHANGE_GROUPNAME';
-export const CHANGE_CHANNEL = 'CHANGE_CHANNEL';
-export const CHANGE_STARTTIME = 'CHANGE_STARTTIME';
-export const CHANGE_ENDTIME = 'CHANGE_ENDTIME';
-export const CHANGE_LOWPRICE = 'CHANGE_LOWPRICE';
-export const CHANGE_HIGHPRICE = 'CHANGE_HIGHPRICE';
-export const CLEAR_ALL = 'CLEAR_ALL';
 export const SEARCH = 'SEARCH';
 
 export function loginAction(status) {
@@ -42,93 +28,11 @@ export function loginAction(status) {
 
 }
 
-export function changeDistrict(e) {
-    const citys = e.target.value == 0 ?  ['beijing', 'tianjin'] : [];
-    const checkboxStatus = e.target.value == 0 ? true : false;
-    return {
-        type: CHANGE_DISTRICT,
-        content: {
-            district: e.target.value,
-            citys,
-            checkboxStatus
-        }
-    };
-}
-
-export function changeCity(citys) {
-    return {
-        type: CHANGE_CITY,
-        content: {
-            citys
-        }
-    }
-}
-
-export function changeGroupName(e) {
-    return {
-        type: CHANGE_GROUPNAME,
-        content: {
-            groupName: e.target.value
-        }
-    }
-}
-
-export function changeChannel(channel) {
-    return {
-        type: CHANGE_CHANNEL,
-        content: {
-            channel
-        }
-    }
-}
-
-export function changeStartTime(time) {
-
-    return {
-        type: CHANGE_STARTTIME,
-        content: {
-            startTime: time
-        }
-    }
-}
-
-export function changeEndTime(time) {
-    return {
-        type: CHANGE_ENDTIME,
-        content: {
-            endTime: time
-        }
-    }
-}
-
-export function changeLowPrice(e) {
-    return {
-        type: CHANGE_LOWPRICE,
-        content: {
-            lowPrice: e.target.value
-        }
-    }
-}
-
-export function changeHighPrice(e) {
-    return {
-        type: CHANGE_HIGHPRICE,
-        content: {
-            highPrice: e.target.value
-        }
-    }
-}
-
-export function clearAll() {
-    return {
-        type: CLEAR_ALL
-    }
-}
-
-export function search() {
+export function search(query) {
+    window.location.hash = `#\index/group?groupName=${query.groupName}&channel=${query.channel}`;
     return (dispatch, getState)=>{
-        const formData = new FormData(),
-            {query} = getState().default;
+        const formData = new FormData();
+        query = query || {};
         for (const [key,value] of Object.entries(query)) {
             formData.append(key, value)
         }

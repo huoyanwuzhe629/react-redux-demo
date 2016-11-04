@@ -1,17 +1,17 @@
 /*
 * @Author: xiongsheng
-* @Date:   2016-10-19 14:11:51
+* @Date:   2016-10-26 19:33:25
 * @Last Modified by:   xiongsheng
-* @Last Modified time: 2016-10-19 15:49:55
+* @Last Modified time: 2016-10-26 19:40:18
 */
 
 'use strict';
-
 import React, { Component} from 'react';
+
 import Query from './Query';
 import ResultTable from './ResultTable';
 
-class Home extends Component {
+class Group extends Component {
     render() {
         return (
             <div>
@@ -22,4 +22,4 @@ class Home extends Component {
     }
 }
 
-export default Home
+export default Group

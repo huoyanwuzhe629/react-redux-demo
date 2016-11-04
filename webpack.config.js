@@ -1,12 +1,20 @@
 var webpack = require("webpack"),
     path = require('path'),
-    AssetsPlugin = require('assets-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var src = path.resolve(__dirname, './src'); // 源码目录
 
 var mockport, hashType, devtool;
+
+var isProductEnv = process.env.NODE_ENV === 'production';
+//default to dev environment
+function env(dev, product) {
+    if (!product) {
+        product = dev;
+    }
+    return isProductEnv ? product : dev;
+}
 //开发环境和上线环境需要区分
 if (process.env.NODE_ENV === 'production') {
     //上线环境
@@ -39,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
 
 var config = {
     entry: {
-        app: "./src/main.js",
+        app: "./index.js",
         vendor: [
             'history',
             'lodash',
@@ -56,27 +64,12 @@ var config = {
     },
     output: {
         path: 'dist',
-        filename: '[name].[' + hashType + '].js',
+        filename: env('[name].js','[name].[' + hashType + '].js'),
         publicPath: '/dist/',
-        chunkFilename: '[name].[' + hashType + '].js'
+        chunkFilename: env('[name].js','[name].[' + hashType + '].js')
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.json', '.es6.js'],
-        alias: {
-            // ================================
-            // 自定义路径别名
-            // ================================
-            COMPONENT: path.join(src, 'components'),
-            ACTION: path.join(src, 'redux/actions'),
-            REDUCER: path.join(src, 'redux/reducers'),
-            STORE: path.join(src, 'redux/store'),
-            ROUTE: path.join(src, 'routes'),
-            SERVICE: path.join(src, 'services'),
-            UTIL: path.join(src, 'utils'),
-            HOC: path.join(src, 'utils/HoC'),
-            MIXIN: path.join(src, 'utils/mixins'),
-            VIEW: path.join(src, 'views')
-        }
     },
     // resolveLoader: {
     //     root: path.join(__dirname, 'node_modules')
@@ -127,31 +120,25 @@ var config = {
         // }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            filename: 'vendor.[' + hashType + '].js',
+            filename: env('vendor.js', 'vendor.[' + hashType + '].js'),
             chunks: ['app', 'vendor']
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest',
-            filename: 'manifest.[' + hashType + '].js', //仅包含webpack运行时环境和映射表
+            filename: env('manifest.js', 'manifest.[' + hashType + '].js'), //仅包含webpack运行时环境和映射表
             chunks: ['vendor']
         }),
 
+        // new HtmlWebpackPlugin({
+        //     template: './src/views/app.html',
+        //     filename: './index.html',
+        //     inject: true,
+        //     chunks: ['app', 'vendor', 'manifest']
+        // }),
 
-        new HtmlWebpackPlugin({
-            template: './src/views/app.html',
-            filename: './index.html',
-            inject: true,
-            chunks: ['app', 'vendor', 'manifest']
-        }),
-
-        new ExtractTextPlugin('[name].[' + hashType + '].css', {
+        new ExtractTextPlugin(env('[name].css', '[name].[' + hashType + '].css'), {
             allChunks: false
         }),
-        // new webpack.ProgressPlugin(function handler(percentage, msg) {/* ... */})
-        new AssetsPlugin({
-            filename: './webpack-assets.json',
-            prettyPrint: true
-        })
     ],
     devServer: {
         proxy: {
@@ -170,6 +157,15 @@ var config = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+
+    config.plugins.push(
+        new HtmlWebpackPlugin({
+            template: './appBuild.html',
+            filename: '../index.html',
+            inject: true,
+            chunks: ['app', 'vendor', 'manifest']
+        })
+    );
     //只有线上环境和qa环境在build的时候才需要压缩
     //devserver不能压缩，因为如果压缩，内存打包非常慢
     config.plugins.push(new webpack.optimize.UglifyJsPlugin({

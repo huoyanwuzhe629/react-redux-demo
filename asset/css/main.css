@@ -2,7 +2,7 @@
 * @Author: xiongsheng
 * @Date:   2016-09-26 20:11:36
 * @Last Modified by:   xiongsheng
-* @Last Modified time: 2016-10-19 18:13:27
+* @Last Modified time: 2016-11-01 10:48:53
 */
 
 body {
@@ -10,6 +10,10 @@ body {
     font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #333333;
+}
+
+ul {
+    list-style: none;
 }
 
 #app{
@@ -23,6 +27,7 @@ body {
 }
 
 .header,
+.content,
 .footer {
     margin: 0 ;
     box-sizing: border-box;
@@ -31,7 +36,7 @@ body {
 
 .logo {
     display: inline-block;
-    background: url(../image/logo_fe.png) no-repeat;
+    background: url(../img/logo_fe.png) no-repeat;
     background-size: 83px 45px;
 }
 
@@ -69,11 +74,6 @@ body {
     float:right;
 }
 
-
-.ant-select-dropdown-menu li:first-child {
-    display: none;
-}
-
 .query-line {
     margin: 10px 0 10px 0;
 }
@@ -83,7 +83,8 @@ body {
 }
 
 .query-container {
-    margin-left: 50px
+    margin-left: 50px;
+    margin-top: 14px;
 }
 .query-label {
     font-size: 14px;
@@ -120,10 +121,6 @@ body {
 h3 {
     display: block;
     font-size: 1.17em;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
     font-weight: bold;
     height: 21px;
 }
@@ -171,5 +168,71 @@ h3 {
     line-height: 18px;
 }
 
+.menu {
+    display: inline-block;
+    margin-left: 84px;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 58px;
+}
+
+.menu a {
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+}
+
+.menu .active {
+    color: #000;
+}
+
+.menu .active:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    bottom: -23px;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.submenu {
+    width: 100%;
+    line-height: 30px;
+    border-bottom: 1px solid #edecec;
+    margin-top: 24px;
+    padding-left: 48px;
+}
+
+.submenu li {
+    display: inline-block;
+}
+
+.submenu a {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+    color: #006190;
+}
+
+.submenu .active {
+    color: #393939;
+    border-bottom: 1px solid #000;
+}
 
 
+/*.nav {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background:#1c5db9;
+    height:60px
+}
+*/
